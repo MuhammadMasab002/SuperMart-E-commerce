@@ -1,0 +1,246 @@
+// app global css in SCSS form
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  //padding: 0 50px;
+  //background-color: red;
+}
+
+.container-fluid {
+  width: 100%;
+  margin: 0 auto;
+}
+
+//// --------- font-size ---------
+.fs-9 {
+  font-size: 9px;
+}
+.fs-10 {
+  font-size: 10px;
+}
+.fs-12 {
+  font-size: 12px;
+}
+.fs-14 {
+  font-size: 14px;
+}
+.fs-15 {
+  font-size: 15px;
+}
+.fs-16 {
+  font-size: 16px;
+}
+.fs-18 {
+  font-size: 18px;
+}
+.fs-20 {
+  font-size: 20px;
+}
+.fs-22 {
+  font-size: 22px;
+}
+.fs-24 {
+  font-size: 24px;
+}
+.fs-26 {
+  font-size: 26px;
+}
+.fs-28 {
+  font-size: 28px;
+}
+.fs-30 {
+  font-size: 30px;
+}
+.fs-32 {
+  font-size: 32px;
+}
+.fs-34 {
+  font-size: 34px;
+}
+.fs-36 {
+  font-size: 36px;
+}
+.fs-38 {
+  font-size: 38px;
+}
+.fs-40 {
+  font-size: 40px;
+}
+.fs-42 {
+  font-size: 42px;
+}
+.fs-44 {
+  font-size: 44px;
+}
+.fs-46 {
+  font-size: 46px;
+}
+.fs-48 {
+  font-size: 48px;
+}
+.fs-50 {
+  font-size: 50px;
+}
+.fs-60 {
+  font-size: 60px;
+}
+.fs-70 {
+  font-size: 70px;
+}
+
+//// --------- text heading ---------
+
+.text-h1 {
+  font-size: 2.5rem;
+}
+.text-h2 {
+  font-size: 2rem;
+}
+.text-h3 {
+  font-size: 1.75rem;
+}
+.text-h4 {
+  font-size: 1.5rem;
+}
+.text-h5 {
+  font-size: 1.25rem;
+}
+.text-h6 {
+  font-size: 1rem;
+}
+
+//// --------- font-weight ---------
+.fw-thin {
+  font-weight: 300;
+}
+.fw-light {
+  font-weight: 400;
+}
+.fw-regular {
+  font-weight: 500;
+}
+.fw-medium {
+  font-weight: 600;
+}
+.fw-semibold {
+  font-weight: 700;
+}
+.fw-bold {
+  font-weight: 800;
+}
+.fw-bolder {
+  font-weight: 900;
+}
+
+
+//// --------- border-radius ---------
+.br-0 {
+  border-radius: 0;
+}
+.br-sm {
+  border-radius: 4px;
+}
+.br-6 {
+    border-radius: 6px;
+}
+.br-md {
+  border-radius: 8px;
+}
+.br-10 {
+  border-radius: 10px;
+}
+.br-lg {
+  border-radius: 16px;
+}
+.br-xl {
+  border-radius: 32px;
+}
+
+.br-right {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.br-left {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+
+//// --------- text colors ---------
+.text-primary {
+  color: var(--primary);
+}
+.text-secondary {
+  color: var(--secondary);
+}
+.text-accent {
+  color: var(--accent);
+}
+.text-dark {
+  color: var(--dark);
+}
+.text-positive {
+  color: var(--positive);
+}
+.text-negative {
+  color: var(--negative);
+}
+.text-info {
+  color: var(--info);
+}
+.text-warning {
+  color: var(--warning);
+}
+.text-light {
+  color: var(--light);
+}
+
+.text-color-1 {
+  color: #505050;
+}
+.text-color-2 {
+  color: #1C1C1C;
+}
+.text-color-3 {
+  color: #8B96A5;
+}
+
+.text-color-4 {
+  color: #EB001B;
+}
+
+
+//// --------- background colors ---------
+/// 
+.bg-color-body {
+  background-color: #f7fafc;
+}
+// .bg-color-1 {
+//   background-color: #EFF2F4;
+// }
+.bg-color-2 {
+  background-color: #e5f1ff;
+}
+.bg-color-3 {
+  background-color: #F38332;
+}
+.bg-color-4 {
+  background-color: #55BDC3;
+}
+
+.bg-color-5 {
+  background-color: #606060;
+}
+.bg-color-6 {
+  background-color: #FFE3E3;
+}
+
+.bg-color-gradient {
+  background: linear-gradient(180deg, #127FFF 0%, #0067FF 100%);
+}
