@@ -1,14 +1,12 @@
 <template>
   <div class="container q-px-sm q-pt-md q-pb-sm">
-    <!-- :class="$q.screen.lt.lg ? 'q-px-sm' : 'q-px-md'" -->
-    <!-- style="border: 1px solid #dee2e7" -->
     <div class="row">
       <div class="q-pb-lg q-pt-sm q-pl-xs">
         <h4
           class="text-h4 text-color-2 fw-medium no-margin q-py-none"
           style="line-height: 28px"
         >
-          Recommended items
+          {{headTitle}}
         </h4>
       </div>
     </div>
@@ -24,12 +22,14 @@
       >
         <div class="q-pa-md img-outer overflow-hidden">
           <!-- :style="$q.screen.lt.md ? { 'height': '250px' } : { 'height': '250px' }" -->
-          <img
-            width="100%"
-            height="100%"
-            :src="item.image"
-            style="object-fit: cov"
-          />
+           <div class="overflow-hidden">
+             <img
+               width="100%"
+               height="100%"
+               :src="item.image"
+               style="object-fit: cover"
+             />
+           </div>
         </div>
         <div class="text-left q-px-md q-pt-sm q-pb-md">
           <p class="fs-18 fw-regular text-color-2 no-margin">
@@ -46,13 +46,14 @@
 
 <script>
 export default {
-  name: "DealsAndOffers",
+  name: "RecommendedItems",
   // props: {},
   // computed: {},
   // watch: {},
   // methods: {},
   data() {
     return {
+      headTitle: "Recommended items",
       recommendList: [
         {
           id: "1",
@@ -130,14 +131,15 @@ export default {
 
 <style scoped>
 .recommendItems {
-  /* overflow: hidden; */
   text-align: center;
   width: 255px;
+  .img-outer img {
+    transition: all 0.3s ease-in-out;
+  }
   &:hover {
     .img-outer img {
       cursor: pointer;
-      transform: scale(1.05);
-      transition: transform 0.3s ease-in-out;
+      transform: scale(1.1);
     }
   }
 }
@@ -169,7 +171,7 @@ export default {
     margin: 0 auto;
   }
   .img-outer img {
-    width: 70%;
+    /* width: 70%; */
     height: auto;
     mix-blend-mode: multiply;
   }

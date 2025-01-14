@@ -7,6 +7,9 @@
       <HomeGadgets :lists="gadgetList" :title="GadgetTitle" />
       <SupplierForm />
       <RecommendedItems />
+      <ExtraServices />
+      <SuppliersByRegion />
+      <NewsLetter />
     </div>
     <!-- <h1>{{ message }}</h1> -->
   </q-page>
@@ -18,6 +21,9 @@ import HeroBanner from "src/components/HeroBanner.vue";
 import HomeGadgets from "src/components/HomeGadgets.vue";
 import RecommendedItems from "src/components/RecommendedItems.vue";
 import SupplierForm from "src/components/SupplierForm.vue";
+import ExtraServices from "src/components/ExtraServices.vue";
+import SuppliersByRegion from "src/components/SuppliersByRegion.vue";
+import NewsLetter from "src/components/NewsLetter.vue";
 export default {
   components: {
     HeroBanner,
@@ -25,6 +31,9 @@ export default {
     HomeGadgets,
     SupplierForm,
     RecommendedItems,
+    ExtraServices,
+    SuppliersByRegion,
+    NewsLetter,
   },
   data() {
     return {

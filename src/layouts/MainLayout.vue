@@ -19,8 +19,8 @@
                   @click="toggleLeftDrawer"
                 />
               </div>
-              <div style="width: 150px; height: auto">
-                <q-img src="/images/logo/logo-colored.png"></q-img>
+              <div>
+                <q-img width="150px" height="auto" src="/images/logo/logo-colored.png"></q-img>
               </div>
             </div>
             <div

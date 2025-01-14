@@ -215,15 +215,18 @@
   color: #EB001B;
 }
 
+.text-color-5 {
+  color: #606060;
+}
 
 //// --------- background colors ---------
 /// 
 .bg-color-body {
   background-color: #f7fafc;
 }
-// .bg-color-1 {
-//   background-color: #EFF2F4;
-// }
+.bg-color-1 {
+  background-color: #EFF2F4;
+}
 .bg-color-2 {
   background-color: #e5f1ff;
 }
@@ -240,7 +243,9 @@
 .bg-color-6 {
   background-color: #FFE3E3;
 }
-
+.bg-color-7 {
+  background-color: #D1E7FF;
+}
 .bg-color-gradient {
   background: linear-gradient(180deg, #127FFF 0%, #0067FF 100%);
 }
