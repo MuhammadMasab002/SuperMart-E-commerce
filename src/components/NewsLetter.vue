@@ -1,14 +1,14 @@
 <template>
   <div class="bg-color-1 q-py-lg q-px-sm">
     <div class="column q-py-lg">
-      <div class="q-pb-sm text-center">
+      <div class="q-mb-sm text-center">
         <h4
           class="text-h4 text-color-2 fw-medium no-margin q-py-none"
           style="line-height: 28px"
         >
           Subscribe on our newsletter
         </h4>
-        <p class="fs-16 fw-light text-color-5 no-margin q-py-sm">
+        <p class="fs-16 fw-light text-color-5 q-my-sm">
           Get daily news on upcoming offers from many suppliers all over the
           world
         </p>
@@ -25,7 +25,7 @@
                 bg-color="white"
                 filled="red"
                 dense
-                class="text-input q-px-sm br-6"
+                class="text-inpu q-px-sm br-6"
                 placeholder="Enter your email address"
               >
                 <template v-slot:prepend>
@@ -33,7 +33,7 @@
                 </template>
               </q-input>
             </div>
-            <div class="text-center">
+            <div class="text-center q-py-sm">
               <q-btn
                 type="submit"
                 dense
@@ -166,11 +166,21 @@
   <div class="bg-color-1 q-py-lg">
     <footer class="container q-px-sm">
       <!-- copyright section -->
-      <div class="row justify-between items-center">
-        <p class="fs-14 fw-light text-color-5 text-center no-margin">
-          &copy; 2023 Ecommerce. All rights reserved.
-        </p>
-        <div>
+      <div
+        class="row items-center"
+        :class="$q.screen.lt.sm ? 'justify-center' : 'justify-between'"
+      >
+        <div :class="$q.screen.lt.sm ? 'col-xs-12' : 'col'">
+          <p
+            class="fs-14 fw-light text-color-5 no-margin"
+            :class="$q.screen.lt.sm ? 'text-center' : 'text-left'"
+          >
+            &copy; 2023 Ecommerce. All rights reserved.
+          </p>
+        </div>
+        <div class="col-auto text-center"
+          :class="$q.screen.lt.sm ? 'q-pt-md' : ''"
+        >
           <q-select
             class="q-px-sm br-sm"
             style="min-width: 120px; border: 1px solid #8b96a5"

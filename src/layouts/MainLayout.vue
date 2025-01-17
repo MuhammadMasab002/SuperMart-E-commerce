@@ -20,7 +20,11 @@
                 />
               </div>
               <div>
-                <q-img width="150px" height="auto" src="/images/logo/logo-colored.png"></q-img>
+                <q-img
+                  width="150px"
+                  height="auto"
+                  src="/images/logo/logo-colored.png"
+                ></q-img>
               </div>
             </div>
             <div
@@ -288,19 +292,19 @@
           </div>
         </div>
       </div>
+      <q-drawer v-model="leftDrawerOpen" bordered>
+        <q-list>
+          <q-item-label header> Essential Links </q-item-label>
+
+          <EssentialLink
+            class="text-black"
+            v-for="link in dynamicLinks"
+            :key="link.title"
+            v-bind="link"
+          />
+        </q-list>
+      </q-drawer>
     </q-header>
-
-    <!-- <q-drawer v-model="leftDrawerOpen" bordered>
-      <q-list>
-        <q-item-label header> Essential Links </q-item-label>
-
-        <EssentialLink
-          v-for="link in linksList"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-drawer> -->
 
     <q-page-container>
       <router-view />
@@ -313,6 +317,9 @@
 import EssentialLink from "components/EssentialLink.vue";
 
 export default {
+  components: {
+    EssentialLink,
+  },
   data() {
     return {
       leftDrawerOpen: false,
@@ -320,54 +327,74 @@ export default {
       text: "", // Added for q-input
       selected: null,
       options: ["Google", "Facebook", "Twitter", "Apple", "Oracle"],
+      dynamicLinks: [],
       linksList: [
         {
-          title: "Docs",
-          caption: "quasar.dev",
-          icon: "school",
-          link: "https://quasar.dev",
+          title: "Home",
+          // caption: "quasar.dev",
+          icon: "home",
+          // link: "https://quasar.dev",
         },
         {
-          title: "Github",
-          caption: "github.com/quasarframework",
-          icon: "code",
-          link: "https://github.com/quasarframework",
+          title: "Categories",
+          // caption: "github.com/quasarframework",
+          icon: "list",
+          // link: "https://github.com/quasarframework",
         },
         {
-          title: "Discord Chat Channel",
-          caption: "chat.quasar.dev",
-          icon: "chat",
-          link: "https://chat.quasar.dev",
-        },
-        {
-          title: "Forum",
-          caption: "forum.quasar.dev",
-          icon: "record_voice_over",
-          link: "https://forum.quasar.dev",
-        },
-        {
-          title: "Twitter",
-          caption: "@quasarframework",
-          icon: "rss_feed",
-          link: "https://twitter.quasar.dev",
-        },
-        {
-          title: "Facebook",
-          caption: "@QuasarFramework",
-          icon: "public",
-          link: "https://facebook.quasar.dev",
-        },
-        {
-          title: "Quasar Awesome",
-          caption: "Community Quasar projects",
+          title: "Favorites",
+          // caption: "chat.quasar.dev",
           icon: "favorite",
-          link: "https://awesome.quasar.dev",
+          // link: "https://chat.quasar.dev",
+        },
+        {
+          title: "My Orders",
+          // caption: "forum.quasar.dev",
+          icon: "inventory",
+          // link: "https://forum.quasar.dev",
+        },
+        {
+          title: "English USD",
+          // caption: "@quasarframework",
+          icon: "currency_exchange",
+          // link: "https://twitter.quasar.dev",
+        },
+        {
+          title: "Contact Us",
+          // caption: "@QuasarFramework",
+          icon: "headset_mic",
+          // link: "https://facebook.quasar.dev",
+        },
+        {
+          title: "About Us",
+          // caption: "Community Quasar projects",
+          icon: "info",
+          // link: "https://awesome.quasar.dev",
+        },
+        {
+          title: "User Aggregation",
+          // caption: "Community Quasar projects",
+          icon: "group_add",
+          // link: "https://awesome.quasar.dev",
+        },
+        {
+          title: "Partnerships",
+          // caption: "Community Quasar projects",
+          icon: "handshake",
+          // link: "https://awesome.quasar.dev",
+        },
+        {
+          title: "Privacy Policy",
+          // caption: "Community Quasar projects",
+          icon: "lock",
+          // link: "https://awesome.quasar.dev",
         },
       ],
     };
   },
   methods: {
     toggleLeftDrawer() {
+      this.dynamicLinks = this.linksList;
       this.leftDrawerOpen = !this.leftDrawerOpen;
     },
   },

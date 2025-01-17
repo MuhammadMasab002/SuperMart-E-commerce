@@ -133,7 +133,6 @@
   font-weight: 900;
 }
 
-
 //// --------- border-radius ---------
 .br-0 {
   border-radius: 0;
@@ -142,7 +141,7 @@
   border-radius: 4px;
 }
 .br-6 {
-    border-radius: 6px;
+  border-radius: 6px;
 }
 .br-md {
   border-radius: 8px;
@@ -158,10 +157,10 @@
 }
 
 .br-right {
-    border-top-right-radius: 6px;
-    border-bottom-right-radius: 6px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .br-left {
@@ -170,7 +169,6 @@
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-
 
 //// --------- text colors ---------
 .text-primary {
@@ -205,14 +203,14 @@
   color: #505050;
 }
 .text-color-2 {
-  color: #1C1C1C;
+  color: #1c1c1c;
 }
 .text-color-3 {
-  color: #8B96A5;
+  color: #8b96a5;
 }
 
 .text-color-4 {
-  color: #EB001B;
+  color: #eb001b;
 }
 
 .text-color-5 {
@@ -220,32 +218,32 @@
 }
 
 //// --------- background colors ---------
-/// 
+///
 .bg-color-body {
   background-color: #f7fafc;
 }
 .bg-color-1 {
-  background-color: #EFF2F4;
+  background-color: #eff2f4;
 }
 .bg-color-2 {
   background-color: #e5f1ff;
 }
 .bg-color-3 {
-  background-color: #F38332;
+  background-color: #f38332;
 }
 .bg-color-4 {
-  background-color: #55BDC3;
+  background-color: #55bdc3;
 }
 
 .bg-color-5 {
   background-color: #606060;
 }
 .bg-color-6 {
-  background-color: #FFE3E3;
+  background-color: #ffe3e3;
 }
 .bg-color-7 {
-  background-color: #D1E7FF;
+  background-color: #d1e7ff;
 }
 .bg-color-gradient {
-  background: linear-gradient(180deg, #127FFF 0%, #0067FF 100%);
+  background: linear-gradient(180deg, #127fff 0%, #0067ff 100%);
 }
