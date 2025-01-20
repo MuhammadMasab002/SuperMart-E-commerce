@@ -42,8 +42,10 @@
           :class="$q.screen.lt.md ? 'q-px-md' : 'q-px-xl'"
         >
           <div
-            class="q-py-xl"
-            :class="$q.screen.lt.sm ? 'q-my-none' : 'q-mb-xl q-mt-lg'"
+            class=""
+            :class="
+              $q.screen.lt.sm ? 'q-my-none q-py-md' : 'q-mb-xl q-mt-lg q-py-xl'
+            "
           >
             <div class="fs-28 fw-light">Latest trending</div>
             <div class="fs-32 fw-semibold" style="line-height: 38px">
@@ -174,23 +176,23 @@ export default {
             },
             {
               id: 102,
-              name: "Computers & Laptops",
-              link: "/electronics/computers-laptops",
+              name: "Laptops",
+              link: "/electronics/laptops",
               subcategories: [
                 {
                   id: 1021,
-                  name: "Desktops",
-                  link: "/electronics/computers-laptops/desktops",
+                  name: "HP",
+                  link: "/electronics/laptops/hp",
                 },
                 {
                   id: 1022,
-                  name: "Laptops",
-                  link: "/electronics/computers-laptops/laptops",
+                  name: "Lenovo",
+                  link: "/electronics/laptops/lenovo",
                 },
                 {
                   id: 1023,
-                  name: "Monitors",
-                  link: "/electronics/computers-laptops/monitors",
+                  name: "DELL",
+                  link: "/electronics/laptops/dell",
                 },
               ],
             },
@@ -292,6 +294,7 @@ export default {
                   link: "/fashion/accessories/sunglasses",
                 },
                 { id: 2033, name: "Hats", link: "/fashion/accessories/hats" },
+                { id: 2044, name: "Bags", link: "/fashion/accessories/bags" },
               ],
             },
           ],
@@ -668,7 +671,7 @@ export default {
           name: "All Categories",
           link: "/all-categories",
           // subcategories: []
-        }
+        },
       ],
     };
   },

@@ -134,12 +134,13 @@ export default {
   text-align: center;
   width: 255px;
   .img-outer img {
-    transition: all 0.3s ease-in-out;
+    /* transition: all 0.3s ease-in-out; */
+    transition: all 2s cubic-bezier(.25,.46,.45,.94);
   }
   &:hover {
     .img-outer img {
       cursor: pointer;
-      transform: scale(1.1);
+      transform: scale(1.2);
     }
   }
 }

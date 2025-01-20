@@ -106,12 +106,12 @@ export default {
   text-align: center;
   img {
     height: 190px;
-    transition: 0.3s ease-in-out;
+    transition: all 3s cubic-bezier(.25,.46,.45,.94);
   }
   &:hover {
     img {
       cursor: pointer;
-      transform: scale(1.1);
+      transform: scale(1.2);
     }
   }
 
@@ -128,7 +128,8 @@ export default {
   border: 3px solid #fff;
   right: 30px;
   bottom: -27px;
-  transition: 0.3s ease-in-out;
+  /* transition: all 0.3s ease-in-out; */
+  transition: all 1s cubic-bezier(.25,.46,.45,.94);
   &:hover {
     background-color: #fff;
     border-color: #d1e7ff;

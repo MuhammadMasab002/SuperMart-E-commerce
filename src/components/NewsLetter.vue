@@ -14,7 +14,7 @@
         </p>
       </div>
       <div class="row flex-center">
-        <form @submit.prevent="submitForm">
+        <form @submit.prevent="handleSubmit">
           <div class="flex flex-center">
             <div class="q-field">
               <q-input
@@ -39,15 +39,15 @@
                 dense
                 :ripple="false"
                 class="bg-color-gradient text-white q-px-md q-py-sm br-6"
+                :loading="loading"
+                loading-color="white"
               >
                 Subscribe
               </q-btn>
-              <!-- :disabled="loading"
-              :class="loading ? 'loading' : ''"
-              :loading-text="loading ? 'Loading...' : 'Subscribe'"
-              :error="error"
-              :error-message="error" -->
             </div>
+          </div>
+          <div v-if="error" class="q-mt-sm q-pl-sm text-negative fs-14">
+            {{ error }}
           </div>
         </form>
       </div>
@@ -121,7 +121,7 @@
                 </h5>
                 <q-list dense padding class="text-color-3 fs-16">
                   <q-item
-                    clickable
+                    clickabl
                     class="footer-items"
                     v-for="(link, index) in item.links"
                     :key="index"
@@ -178,7 +178,8 @@
             &copy; 2023 Ecommerce. All rights reserved.
           </p>
         </div>
-        <div class="col-auto text-center"
+        <div
+          class="col-auto text-center"
           :class="$q.screen.lt.sm ? 'q-pt-md' : ''"
         >
           <q-select
@@ -322,6 +323,27 @@ export default {
       ],
     };
   },
+    // :disabled="loading"
+    // :class="loading ? 'loading' : ''"
+    // :loading-text="loading ? 'Loading...' : 'Subscribe'"
+    // :error="error"
+    // :error-message="error"
+  methods: {
+    handleSubmit() {
+      this.loading = true;
+      this.error = null;
+
+      setTimeout(() => {
+        if (this.email.includes("@gmail.com")) {
+          this.loading = false;
+          alert("Thank you for your subscription!");
+        } else {
+          this.error = "Invalid email address.";
+          this.loading = false;
+        }
+      }, 2000);
+    },
+  }
 };
 //
 </script>
@@ -333,6 +355,9 @@ export default {
 .footer-items:hover {
   padding-left: 20px;
   color: #0067ff;
+  background-color: #e5f1ff;
+  transform: scale(1.01);
+  cursor: pointer;
 }
 .footer-icon {
   width: 35px;
