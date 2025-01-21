@@ -6,7 +6,7 @@
           class="text-h4 text-color-2 fw-medium no-margin q-py-none"
           style="line-height: 28px"
         >
-          {{headTitle}}
+          {{ headTitle }}
         </h4>
       </div>
     </div>
@@ -22,22 +22,24 @@
       >
         <div class="q-pa-md img-outer overflow-hidden">
           <!-- :style="$q.screen.lt.md ? { 'height': '250px' } : { 'height': '250px' }" -->
-           <div class="overflow-hidden">
-             <img
-               width="100%"
-               height="100%"
-               :src="item.image"
-               style="object-fit: cover"
-             />
-           </div>
+          <div class="overflow-hidden">
+            <img
+              width="100%"
+              height="100%"
+              :src="item.image"
+              style="object-fit: cover"
+            />
+          </div>
         </div>
         <div class="text-left q-px-md q-pt-sm q-pb-md">
           <p class="fs-18 fw-regular text-color-2 no-margin">
             {{ item.price }}
           </p>
-          <p class="fs-16 fw-light text-color-3 no-margin q-py-xs">
-            {{ item.discription }}
-          </p>
+          <div class="product-title q-my-sm overflow-hidden">
+            <a href="" class="fs-16 fw-light text-color-3 q-py-xs">
+              {{ item.discription }}
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -59,7 +61,8 @@ export default {
           id: "1",
           image: "/images/cloth/1.jpg",
           price: "$10.30",
-          discription: "T-shirts with multiple colors, for men",
+          discription:
+            "T-shirts with multiple colors, for men",
         },
         {
           id: "2",
@@ -133,9 +136,10 @@ export default {
 .recommendItems {
   text-align: center;
   width: 255px;
+  cursor: pointer;
   .img-outer img {
     /* transition: all 0.3s ease-in-out; */
-    transition: all 2s cubic-bezier(.25,.46,.45,.94);
+    transition: all 2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   &:hover {
     .img-outer img {
@@ -175,6 +179,18 @@ export default {
     /* width: 70%; */
     height: auto;
     mix-blend-mode: multiply;
+  }
+}
+
+.product-title {
+  height: 50px;
+
+  a {
+    transition: color 0.3s ease-in-out;
+    text-decoration: none;
+    &:hover {
+      color: #ff5500;
+    }
   }
 }
 </style>

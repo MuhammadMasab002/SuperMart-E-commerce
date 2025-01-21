@@ -1,5 +1,6 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout view="lHh Lpr fff ">
+    <!--  * hHh lpR fff-->
     <q-header elevate class="bg-white">
       <div style="border-bottom: 1px solid #e0e0e0">
         <div class="container" :class="$q.screen.lt.sm ? 'q-px-sm' : 'q-px-md'">
@@ -17,7 +18,6 @@
                   icon="menu"
                   aria-label="Menu"
                   @click="toggleLeftDrawer"
-
                 />
               </div>
               <div>
@@ -67,9 +67,8 @@
                 </q-select>
               </div> -->
               <q-btn
-                class="br-right q-px-lg"
+                class="br-right q-px-lg bg-color-gradient text-white"
                 unelevated
-                color="primary"
                 label="Search"
                 :ripple="false"
               />
@@ -81,10 +80,10 @@
                 bordere
                 dense
               >
-                <q-item class="no-padding" clickable>
+                <q-item class="no-padding nav-items">
                   <q-item-section>
                     <q-avatar square size="44px">
-                      <q-icon name="person" color="grey" />
+                      <q-icon name="person" />
                       <q-item-label
                         captio
                         class="fs-10 fw-light"
@@ -95,13 +94,12 @@
                   </q-item-section>
                 </q-item>
                 <q-item
-                  class="no-padding"
-                  clickable
+                  class="no-padding nav-items"
                   :class="$q.screen.gt.xs ? 'visible' : 'hidden'"
                 >
                   <q-item-section>
                     <q-avatar square size="44px">
-                      <q-icon name="message" color="grey" />
+                      <q-icon name="message" />
                       <q-item-label class="fs-10 fw-light"
                         >Message</q-item-label
                       >
@@ -109,21 +107,20 @@
                   </q-item-section>
                 </q-item>
                 <q-item
-                  class="no-padding"
-                  clickable
+                  class="no-padding nav-items"
                   :class="$q.screen.gt.xs ? 'visible' : 'hidden'"
                 >
                   <q-item-section>
                     <q-avatar square size="44px">
-                      <q-icon name="favorite" color="grey" />
+                      <q-icon name="favorite" />
                       <q-item-label class="fs-10 fw-light">Orders</q-item-label>
                     </q-avatar>
                   </q-item-section>
                 </q-item>
-                <q-item class="no-padding" clickable>
+                <q-item class="no-padding nav-items">
                   <q-item-section>
                     <q-avatar square size="44px">
-                      <q-icon name="shopping_cart" color="grey" />
+                      <q-icon name="shopping_cart" />
                       <q-item-label
                         class="fs-10 fw-light"
                         :class="$q.screen.lt.sm ? 'hidden' : 'visible'"
@@ -142,47 +139,47 @@
           <div class="row" :class="$q.screen.lt.md ? 'hidden' : 'visible'">
             <div class="col-8">
               <q-list class="flex q-py-sm text-dark" bordere dense>
-                <q-item class="no-padding q-mx-xs" clickable>
+                <q-item class="no-padding q-mx-xs nav-items">
                   <q-item-section>
                     <q-item-label class="fs-16 fw-regular q-px-sm"
                       >All category</q-item-label
                     >
                   </q-item-section>
                 </q-item>
-                <q-item class="no-padding q-mx-xs" clickable>
+                <q-item class="no-padding q-mx-xs nav-items">
                   <q-item-section>
                     <q-item-label class="fs-16 fw-regular q-px-sm"
                       >Hot offers</q-item-label
                     >
                   </q-item-section>
                 </q-item>
-                <q-item class="no-padding q-mx-xs" clickable>
+                <q-item class="no-padding q-mx-xs nav-items">
                   <q-item-section>
                     <q-item-label class="fs-16 fw-regular q-px-sm"
                       >Gift boxes</q-item-label
                     >
                   </q-item-section>
                 </q-item>
-                <q-item class="no-padding q-mx-xs" clickable>
+                <q-item class="no-padding q-mx-xs nav-items">
                   <q-item-section>
                     <q-item-label class="fs-16 fw-regular q-px-sm"
                       >Projects</q-item-label
                     >
                   </q-item-section>
                 </q-item>
-                <q-item class="no-padding q-mx-xs" clickable>
+                <q-item class="no-padding q-mx-xs nav-items">
                   <q-item-section>
                     <q-item-label class="fs-16 fw-regular q-px-sm"
                       >Menu item</q-item-label
                     >
                   </q-item-section>
                 </q-item>
-                <q-item class="no-padding q-mx-sm" clickabl>
+                <q-item class="no-padding q-mx-sm">
                   <q-item-section>
                     <q-item-label class="fs-16 fw-regular">
                       <q-select
-                        class="q-px-sm br-sm"
-                        style="min-width: 120px; border: 1px solid #8b96a5"
+                        class="q-px-sm br-sm nav-select-option"
+                        style="min-width: 120px"
                         square
                         dense
                         borderless
@@ -203,8 +200,8 @@
                   <q-item-section>
                     <q-item-label class="fs-16 fw-regular">
                       <q-select
-                        class="q-px-sm br-sm"
-                        style="min-width: 140px; border: 1px solid #8b96a5"
+                        class="q-px-sm br-sm nav-select-option"
+                        style="min-width: 140px"
                         square
                         dense
                         borderless
@@ -229,8 +226,8 @@
                   <q-item-section>
                     <q-item-label class="fs-16 fw-regular">
                       <q-select
-                        class="q-px-sm br-sm"
-                        style="min-width: 120px; border: 1px solid #8b96a5"
+                        class="q-px-sm br-sm nav-select-option"
+                        style="min-width: 120px"
                         square
                         dense
                         borderless
@@ -303,9 +300,8 @@
                     transition-hide="jump-up"
                   />
                   <q-btn
-                    class="br-right"
+                    class="br-right bg-color-gradient text-white"
                     unelevated
-                    color="primary"
                     label="Search"
                     :ripple="false"
                   />
@@ -315,54 +311,227 @@
           </div>
         </div>
       </div>
-      <q-drawer v-model="leftDrawerOpen" bordered>
-        <q-list>
-          <q-item-label header>
-            <div class="br-md bg-color-2 q-pa-md">
-              <div class="flex justify-center items-center no-wrap">
-                <q-avatar size="50px">
-                  <img src="/images/icons/Avatar.png" alt="User Avatar" />
-                </q-avatar>
+    </q-header>
+
+    <q-drawer v-model="leftDrawerOpen" bordered>
+      <q-list>
+        <q-item-label header>
+          <div class="br-md bg-color-2 q-pa-md">
+            <div class="flex justify-center items-center no-wrap">
+              <q-avatar size="50px">
+                <img src="/images/icons/Avatar.png" alt="User Avatar" />
+              </q-avatar>
+            </div>
+            <div class="q-gutter-y-md q-mt-md">
+              <div>
+                <q-btn
+                  label="Sign in"
+                  v-ripple="false"
+                  class="br-6 no-shadow"
+                  style="width: 100%; background-color: #0d6efd; color: #fff"
+                />
               </div>
-              <div class="q-gutter-y-md q-mt-md">
-                <div>
-                  <q-btn
-                    label="Sign in"
-                    v-ripple="false"
-                    class="br-6 no-shadow"
-                    style="width: 100%; background-color: #0d6efd; color: #fff"
-                  />
-                </div>
-                <div>
-                  <q-btn
-                    label="Register"
-                    v-ripple="false"
-                    class="br-6"
-                    style="
-                      width: 100%;
-                      background-color: #fff;
-                      color: #0d6efd;
-                      border: 1px solid #0d6efd;
-                    "
-                  />
-                </div>
+              <div>
+                <q-btn
+                  label="Register"
+                  v-ripple="false"
+                  class="br-6"
+                  style="
+                    width: 100%;
+                    background-color: #fff;
+                    color: #0d6efd;
+                    border: 1px solid #0d6efd;
+                  "
+                />
               </div>
             </div>
-          </q-item-label>
+          </div>
+        </q-item-label>
 
-          <EssentialLink
-            class="text-blac"
-            v-for="link in dynamicLinks"
-            :key="link.title"
-            v-bind="link"
-          />
-        </q-list>
-      </q-drawer>
-    </q-header>
+        <EssentialLink
+          class="text-blac"
+          v-for="link in dynamicLinks"
+          :key="link.title"
+          v-bind="link"
+        />
+      </q-list>
+    </q-drawer>
 
     <q-page-container>
       <router-view />
     </q-page-container>
+
+    <!-- footer section -->
+    <q-footer>
+      <div class="bg-white q-py-lg">
+        <div class="container q-px-sm q-py-lg">
+          <div
+            class="row"
+            :class="$q.screen.lt.md ? 'text-center' : 'text-left'"
+          >
+            <div class="col-xs-12 col-md-3">
+              <div>
+                <q-img
+                  width="140px"
+                  height="auto"
+                  src="/images/logo/logo-colored.png"
+                />
+              </div>
+              <div>
+                <p class="fs-16 fw-regulat text-color-1 no-margin q-pt-md">
+                  Best information about the company gies <br :class="$q.screen.lt.md ? 'visible': 'hidden'">
+                  here but now lorem ipsum is
+                </p>
+              </div>
+              <ul
+                class="flex q-gutter-x-sm no-padding q-my-md"
+                :class="$q.screen.lt.md ? 'flex-center' : 'items-center'"
+              >
+                <li class="footer-icon br-xl flex flex-center">
+                  <q-icon name="fab fa-facebook" color="white" size="20px" />
+                </li>
+                <li class="footer-icon br-xl flex flex-center">
+                  <q-icon name="fab fa-twitter" color="white" size="20px" />
+                </li>
+                <li class="footer-icon br-xl flex flex-center">
+                  <q-icon name="fab fa-linkedin" color="white" size="20px" />
+                </li>
+                <li class="footer-icon br-xl flex flex-center">
+                  <q-icon name="fab fa-instagram" color="white" size="20px" />
+                </li>
+                <li class="footer-icon br-xl flex flex-center">
+                  <q-icon name="fab fa-youtube" color="white" size="20px" />
+                </li>
+              </ul>
+
+              <!-- <div>
+              <p class="fs-16 fw-light text-color-3 no-margin q-py-sm">
+                Address: 123 Main Street, City, State, Zip
+              </p>
+              <p class="fs-16 fw-light text-color-3 no-margin q-py-sm">
+                Phone: (123) 456-7890
+              </p>
+            </div> -->
+            </div>
+            <div class="col-xs-12 col-md-6">
+              <div
+                class="row"
+                :class="$q.screen.lt.md ? 'q-my-md q-px-none' : 'q-px-sm'"
+              >
+                <div
+                  class="col-xs-12 col-sm-4"
+                  v-for="(item, index) in nevigations"
+                  :key="index"
+                >
+                  <div>
+                    <h5
+                      class="text-h5 text-color-2 fw-medium no-margin q-py-none"
+                      :class="$q.screen.lt.md ? 'q-pl-none' : 'q-pl-md'"
+                    >
+                      {{ item.label }}
+                    </h5>
+                    <q-list dense padding class="text-color-3 fs-16">
+                      <q-item
+                        clickabl
+                        class="footer-items"
+                        v-for="(link, index) in item.links"
+                        :key="index"
+                      >
+                        <q-item-section> {{ link.label }} </q-item-section>
+                      </q-item>
+                    </q-list>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-md-3">
+              <div>
+                <h5
+                  class="text-h5 text-color-2 fw-medium no-margin q-pb-md"
+                  :class="$q.screen.lt.md ? 'q-pl-none' : 'q-pl-md'"
+                >
+                  Get App
+                </h5>
+                <div class="q-py-xs">
+                  <q-img
+                    class="store-img"
+                    width="130px"
+                    height="auto"
+                    src="/images/Misc/app_store.png"
+                  />
+                </div>
+                <div class="q-py-xs">
+                  <q-img
+                    class="store-img"
+                    width="130px"
+                    height="auto"
+                    src="/images/Misc/play_store.png"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-color-1 q-py-lg">
+        <footer class="container q-px-sm">
+          <!-- copyright section -->
+          <div
+            class="row items-center"
+            :class="$q.screen.lt.sm ? 'justify-center' : 'justify-between'"
+          >
+            <div :class="$q.screen.lt.sm ? 'col-xs-12' : 'col'">
+              <p
+                class="fs-14 fw-light text-color-5 no-margin"
+                :class="$q.screen.lt.sm ? 'text-center' : 'text-left'"
+              >
+                &copy; 2023 Ecommerce. All rights reserved.
+              </p>
+            </div>
+            <div
+              class="col-auto text-center"
+              :class="$q.screen.lt.sm ? 'q-pt-md' : ''"
+            >
+              <q-select
+                class="q-px-sm br-sm nav-select-option"
+                style="min-width: 120px"
+                square
+                dense
+                borderless
+                v-model="selected"
+                :options="languages"
+                option-value="country"
+                option-label="country"
+                label="Lang"
+                transition-show="jump-up"
+                transition-hide="jump-up"
+              >
+                <template v-slot:append>
+                  <q-avatar square class="q-ml-sm">
+                    <q-img :src="selected ? selected.flag : ''" />
+                  </q-avatar>
+                </template>
+              </q-select>
+            </div>
+            <!-- <div>
+            <a href="#" class="text-color-5">
+              <q-icon name="facebook" />
+            </a>
+            <a href="#" class="text-color-5">
+              <q-icon name="twitter" />
+            </a>
+            <a href="#" class="text-color-5">
+              <q-icon name="instagram" />
+            </a>
+            <a href="#" class="text-color-5">
+              <q-icon name="linkedin" />
+            </a>
+          </div> -->
+          </div>
+        </footer>
+      </div>
+    </q-footer>
   </q-layout>
 </template>
 
@@ -1083,6 +1252,100 @@ export default {
           // link: "https://awesome.quasar.dev",
         },
       ],
+
+      //// footer part
+      selected: null,
+      languages: [
+        {
+          id: "1",
+          country: "English",
+          flag: "/images/flags/10=GB.png",
+          // link: "shopname.gb",
+        },
+        {
+          id: "2",
+          country: "French",
+          flag: "/images/flags/7=FR.png",
+          // link: "shopname.fr",
+        },
+        {
+          id: "3",
+          country: "Chinese",
+          flag: "/images/flags/8=CN.png",
+          // link: "shopname.cn",
+        },
+        {
+          id: "4",
+          country: "Italian",
+          flag: "/images/flags/5=IT.png",
+          // link: "shopname.it",
+        },
+      ],
+      nevigations: [
+        {
+          label: "Nevigation",
+          links: [
+            {
+              label: "About us",
+              href: "#about",
+            },
+            {
+              label: "Find Store",
+              href: "#store",
+            },
+            {
+              label: "Categories",
+              href: "#categories",
+            },
+            {
+              label: "Blogs",
+              href: "#blogs",
+            },
+          ],
+        },
+        {
+          label: "Need Help?",
+          links: [
+            {
+              label: "Help Center",
+              href: "#help",
+            },
+            {
+              label: "Money Refund",
+              href: "#refund",
+            },
+            {
+              label: "Shipping",
+              href: "#shipping",
+            },
+            {
+              label: "Contact us",
+              href: "#contact",
+            },
+          ],
+        },
+        {
+          label: "For users",
+          links: [
+            {
+              label: "Login",
+              href: "#login",
+            },
+            {
+              label: "Register",
+              href: "#register",
+            },
+            {
+              label: "Settings",
+              href: "#settings",
+            },
+            {
+              label: "My Orders",
+              href: "#orders",
+            },
+          ],
+        },
+      ],
     };
   },
   methods: {
@@ -1097,5 +1360,73 @@ export default {
 <style scoped>
 .custom-input {
   width: 100%;
+}
+.nav-items {
+  color: #000;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #e5f1ff;
+    color: #0067ff;
+    cursor: pointer;
+  }
+  .q-icon {
+    color: gray;
+    transition: all 0.3s ease-in-out;
+  }
+  &:hover {
+    .q-icon {
+      padding-bottom: 5px;
+      color: #0067ff;
+    }
+  }
+}
+.nav-select-option {
+  border: 1px solid #8b96a5;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    border-color: #0067ff;
+  }
+}
+
+/* footer secton */
+.footer-items {
+  transition: all 0.3s ease-in-out;
+}
+.footer-items:hover {
+  padding-left: 20px;
+  color: #0067ff;
+  background-color: #e5f1ff;
+  transform: scale(1.01);
+  cursor: pointer;
+}
+.footer-icon {
+  width: 35px;
+  height: 35px;
+  background-color: #bdc4cd;
+  transition: all 0.3s ease-in-out;
+}
+.footer-icon:hover {
+  background-color: #0067ff;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.store-img {
+  transition: all 0.3s ease-in-out;
+}
+.store-img:hover {
+  cursor: pointer;
+}
+
+.nav-select-option {
+  border: 1px solid #8b96a5;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    border-color: #0067ff;
+  }
 }
 </style>

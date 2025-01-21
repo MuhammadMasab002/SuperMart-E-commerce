@@ -21,7 +21,7 @@
         <q-card-section class="q-py-sm q-pl-md item-link">
           <p class="no-margin q-pl-lg">
             <q-icon class="item-icon q-mr-sm" size="20px" :name="item.icon" />
-            {{ item.name }}
+            {{item.name }}
           </p>
         </q-card-section>
       </q-card>
@@ -29,7 +29,7 @@
   </div>
   <div v-if="icon == 'currency_exchange'">
     <q-expansion-item
-      class="fs-16 fw-light text-blac custom-expansion-header"
+      class="fs-16 fw-light custom-expansion-header"
       :icon="icon"
       :label="title"
     >

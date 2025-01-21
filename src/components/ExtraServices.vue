@@ -39,13 +39,12 @@
               <q-icon size="22px" color="black" :name="item.icon" />
             </div>
           </div>
-          <div class="text-left q-pa-md bg-white">
-            <p
-              class="fs-18 fw-medium text-color-2 no-margin overflow-hidden"
-              style="height: 55px; width: 75%"
+          <div class="product-title text-left q-ma-md bg-whit overflow-hidden">
+            <a href=""
+              class="fs-18 fw-medium text-color-2 no-margin"
             >
               {{ item.title }}
-            </p>
+            </a>
           </div>
         </div>
       </div>
@@ -106,7 +105,7 @@ export default {
   text-align: center;
   img {
     height: 190px;
-    transition: all 3s cubic-bezier(.25,.46,.45,.94);
+    transition: all 3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   &:hover {
     img {
@@ -129,12 +128,26 @@ export default {
   right: 30px;
   bottom: -27px;
   /* transition: all 0.3s ease-in-out; */
-  transition: all 1s cubic-bezier(.25,.46,.45,.94);
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   &:hover {
     background-color: #fff;
     border-color: #d1e7ff;
     color: #000;
     cursor: pointer;
+  }
+}
+
+.product-title {
+  width: 66%;
+  height: 60px;
+
+  a {
+    transition: color 0.3s ease-in-out;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+      color: #ff5500;
+    }
   }
 }
 </style>
