@@ -20,17 +20,18 @@
         :class="$q.screen.lt.md ? 'hidden' : 'visible'"
       >
         <div>
-          <!-- <q-separator color="primary" size="2px" /> -->
-          <q-list bordere>
+          <q-separator color="primary" size="2px" />
+          <q-list class="bg-white">
             <q-expansion-item
               v-for="(filter, index) in filterList"
               :key="index"
               :label="filter.label"
               dens
               default-opened
-              header-style="background: #e5f1ff"
-              header-class="fs-16 fw-regular"
+              header-style="color: #0067ff"
+              header-class="fs-16 fw-regular bg-grey-"
             >
+              <q-separator color="grey-4" size="2px" />
               <q-card
                 :class="[
                   { 'active-filter-item': item.modelValue },
@@ -170,34 +171,46 @@
             </div>
           </div>
         </div>
-        <div class="row q-gutter-y-md q-mt-sm">
+        <div class="row q-gutter-y-md q-col-gutter-x-md q-mt-sm">
           <div
-            class="col-xs-12"
+            class="col-xs-12col-sm-4"
+            :class="
+              gridModel == 'grid' ? 'col-xs-12 col-sm-6 col-md-4' : 'col-sm-12'
+            "
             v-for="(item, index) in productList"
             :key="index"
           >
             <!-- Product list goes here -->
-            <div
-              class="product-item bg-white overflow-hidden br-6 relative-position"
-              style="border: 2px solid #dee2e7"
-            >
+            <div class="product-item bg-white overflow-hidden br-6">
               <div class="row">
                 <q-card class="my-card" style="width: 100%">
                   <q-card-section
                     class="items-center"
-                    :horizontal="!$q.screen.lt.sm"
+                    :horizontal="
+                      gridModel == 'grid' ? $q.screen.lt.xs : !$q.screen.lt.sm
+                    "
                   >
                     <!-- :horizontal="$q.screen.lt.sm ? 'horizontal' : 'vertical'" -->
                     <q-card-section class="q-pa-sm">
-                      <div>
-                        <q-img
-                          class="col3"
+                      <!-- <div style="width: 230px;"> -->
+                      <q-img
+                        :width="
+                          $q.screen.lt.md
+                            ? '180px'
+                            : gridModel == 'grid'
+                            ? '100%'
+                            : '230px'
+                        "
+                        style="object-fit: contain"
+                        :src="item.image1"
+                      />
+                      <!-- <q-img
                           :width="$q.screen.lt.md ? '180px' : '230px'"
-                          :src="item.image"
-                        />
-                      </div>
+                          :src="item.image2"
+                        /> -->
+                      <!-- </div> -->
                     </q-card-section>
-                    <q-card-section class="">
+                    <q-card-section class="relative-position no-padding">
                       <div>
                         <div class="q-py-md q-px-sm">
                           <div
@@ -209,7 +222,7 @@
                             "
                           >
                             <q-btn
-                              class="no-margin q-pa-x"
+                              class="no-margin"
                               flat
                               dense
                               color="primary"
@@ -220,10 +233,11 @@
                           </div>
                           <h5
                             class="text-h5 fw-regular text-color-2 no-margin q-pt-x"
+                            :class="gridModel == 'grid' ? 'hidden' : 'visible'"
                           >
                             <a
                               href=""
-                              class="text-color-2 product-title"
+                              class="text-color-2 product-title-link"
                               style="text-decoration: none"
                             >
                               {{ item.name }}
@@ -247,10 +261,27 @@
                               class="fs-16 fw-regular text-color-4 q-pl-sm"
                               >{{ item.rating }}</span
                             >
-                            <span class="fs-16 fw-light text-green-5 q-pl-md"
+                            <span
+                              class="fs-16 fw-light text-green-5 q-pl-md"
+                              :class="
+                                gridModel == 'grid' ? 'hidden' : 'visible'
+                              "
                               >Free Shipping</span
                             >
                           </div>
+                          <h5
+                            class="product-item-name text-h5 fw-regular text-color-2 no-margin q-pt-md overflow-hidden"
+
+                            :class="gridModel == 'list' ? 'hidden' : 'visible'"
+                          >
+                            <a
+                              href=""
+                              class="text-color-2 product-title-link"
+                              style="text-decoration: none"
+                            >
+                              {{ item.name }}
+                            </a>
+                          </h5>
                           <div
                             class="bg-blue1 q-my-sm"
                             :style="
@@ -261,11 +292,17 @@
                           >
                             <p
                               class="fs-16 fw-light text-color-3 no-margin q-py-xs q-px-xs"
+                              :class="
+                                gridModel == 'grid' ? 'hidden' : 'visible'
+                              "
                             >
                               {{ item.discription }}
                             </p>
                             <q-btn
                               class="fw-regular"
+                              :class="
+                                gridModel == 'grid' ? 'hidden' : 'visible'
+                              "
                               no-caps
                               flat
                               color="primary"
@@ -484,7 +521,8 @@ export default {
           name: "Canon EOS 2000, Black 10x zoom",
           price: 998,
           rating: 4.5,
-          image: "/images/tech/8.jpg",
+          image1: "/images/tech/mobile-1.webp",
+          image2: "/images/tech/mobile-2.webp",
           discription:
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
         },
@@ -493,7 +531,8 @@ export default {
           name: "GoPro HERO6 4K Action Camera - Black",
           price: 1299,
           rating: 4.7,
-          image: "/images/tech/1.jpg",
+          image1: "/images/tech/8.jpg",
+          image2: "/images/tech/8.jpg",
           discription:
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
         },
@@ -502,7 +541,8 @@ export default {
           name: "Nikon D850, Black and White",
           price: 1499,
           rating: 4.3,
-          image: "/images/tech/2.jpg",
+          image1: "/images/tech/2.jpg",
+          image2: "/images/tech/2.jpg",
           discription:
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
         },
@@ -551,12 +591,22 @@ export default {
 }
 
 .product-item {
+  transition: all 0.3s ease-in-out;
+  border: 2px solid #dee2e7;
   &:hover {
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
     cursor: pointer;
+    border-color: #0066ff69;
   }
 }
+.product-item-name {
+  height: 67px;
+  /* background-color: aqua; */
+  line-height: 25px;
 
-.product-title {
+}
+
+.product-title-link {
   transition: all 0.3s ease-in-out;
   &:hover {
     color: #eb001b;
