@@ -1,5 +1,8 @@
 <template>
-  <div class="container q-px-lg q-py-md">
+  <div
+    class="container q-py-md"
+    :class="$q.screen.lt.sm ? 'q-px-md' : 'q-px-lg'"
+  >
     <div class="row">
       <div class="col-xs-12">
         <div class="q-pb-md q-pt-sm">
@@ -82,7 +85,6 @@
                       drag-range
                       track-size="6px"
                       inner-track-color="transparent"
-                      :selection-img="img"
                     />
                   </q-item-section>
                   <q-item-section
@@ -116,7 +118,8 @@
         <div class="row">
           <div class="col-xs-12">
             <div
-              class="products-grid flex justify-between items-center q-py-sm q-px-md bg-white br-6"
+              class="products-grid flex justify-between items-center q-py-sm bg-white br-6"
+              :class="$q.screen.lt.sm ? 'q-px-sm' : 'q-px-md'"
               style="border: 2px solid #dee2e7"
             >
               <div>
@@ -129,6 +132,21 @@
                 </h5>
               </div>
               <div class="flex items-center">
+                <div
+                  class="bg-white br-6"
+                  :class="$q.screen.lt.sm ? 'q-mr-xs' : $q.screen.lt.md ? 'q-mr-sm  visible' : 'hidden'"
+                  style="border: 2px solid #dee2e7"
+                >
+                  <q-btn
+                    flat
+                    dense
+                    color="grey-6"
+                    :ripple="false"
+                    size="1em"
+                    icon="filter_alt"
+                  />
+                </div>
+
                 <p
                   class="fs-16 fw-regular no-margin q-pr-sm"
                   :class="$q.screen.lt.sm ? 'hidden' : 'visible'"
@@ -173,9 +191,8 @@
         </div>
         <div class="row q-gutter-y-md q-col-gutter-x-md q-mt-sm">
           <div
-            class="col-xs-12col-sm-4"
             :class="
-              gridModel == 'grid' ? 'col-xs-12 col-sm-6 col-md-4' : 'col-sm-12'
+              gridModel == 'grid' ? 'col-xs-12 col-sm-6 col-md-4' : 'col-xs-12'
             "
             v-for="(item, index) in productList"
             :key="index"
@@ -190,9 +207,7 @@
                       gridModel == 'grid' ? $q.screen.lt.xs : !$q.screen.lt.sm
                     "
                   >
-                    <!-- :horizontal="$q.screen.lt.sm ? 'horizontal' : 'vertical'" -->
                     <q-card-section class="q-pa-sm">
-                      <!-- <div style="width: 230px;"> -->
                       <q-img
                         :width="
                           $q.screen.lt.md
@@ -210,30 +225,42 @@
                         /> -->
                       <!-- </div> -->
                     </q-card-section>
-                    <q-card-section class="relative-position no-padding">
-                      <div>
-                        <div class="q-py-md q-px-sm">
-                          <div
-                            class="bg-white absolute-top-right no-margin br-6"
-                            style="
-                              border: 2px solid #dee2e7;
-                              right: 20px;
-                              top: 20px;
-                            "
-                          >
-                            <q-btn
-                              class="no-margin"
-                              flat
-                              dense
-                              color="primary"
-                              :ripple="false"
-                              size="1.2em"
-                              icon="favorite_border"
-                            />
-                          </div>
+                    <q-card-section class="no-padding">
+                      <div class="q-py-md q-px-sm relative-position">
+                        <div
+                          class="bg-white absolute-top-right br-6"
+                          :style="
+                            gridModel == 'grid'
+                              ? { right: '0px', top: '15px' }
+                              : $q.screen.lt.sm
+                              ? { right: '0px', top: '15px' }
+                              : { right: '20px', top: '20px' }
+                          "
+                          style="border: 2px solid #dee2e7"
+                        >
+                          <q-btn
+                            flat
+                            dense
+                            color="primary"
+                            :ripple="false"
+                            size="1.2em"
+                            icon="favorite_border"
+                          />
+                        </div>
+                        <div>
                           <h5
-                            class="text-h5 fw-regular text-color-2 no-margin q-pt-x"
-                            :class="gridModel == 'grid' ? 'hidden' : 'visible'"
+                            class="product-item-grid-name overflow-hidden text-h5 fw-regular text-color-2 no-margin q-pt-x"
+                            :class="
+                              gridModel == 'grid'
+                                ? 'hidden'
+                                : 'visible' && $q.screen.gt.xs
+                                ? gridModel == 'list'
+                                  ? 'visible'
+                                  : 'hidden'
+                                : gridModel == 'list'
+                                ? 'hidden'
+                                : 'visible'
+                            "
                           >
                             <a
                               href=""
@@ -264,15 +291,75 @@
                             <span
                               class="fs-16 fw-light text-green-5 q-pl-md"
                               :class="
-                                gridModel == 'grid' ? 'hidden' : 'visible'
+                                gridModel == 'grid'
+                                  ? 'hidden'
+                                  : 'visible' && $q.screen.gt.xs
+                                  ? gridModel == 'list'
+                                    ? 'visible'
+                                    : 'hidden'
+                                  : gridModel == 'list'
+                                  ? 'hidden'
+                                  : 'visible'
                               "
                               >Free Shipping</span
                             >
                           </div>
+                          <div
+                            class="bg-blue1 q-my-sm"
+                            :class="
+                              gridModel == 'grid'
+                                ? 'hidden'
+                                : 'visible' && $q.screen.gt.xs
+                                ? gridModel == 'list'
+                                  ? 'visible'
+                                  : 'hidden'
+                                : gridModel == 'list'
+                                ? 'hidden'
+                                : 'visible'
+                            "
+                            :style="
+                              $q.screen.lt.md
+                                ? { width: '100%' }
+                                : { width: '80%' }
+                            "
+                          >
+                            <p
+                              class="fs-16 fw-light text-color-3 no-margin q-py-xs q-px-xs"
+                            >
+                              {{ item.discription }}
+                            </p>
+                          </div>
+                          <q-btn
+                            class="fw-regular"
+                            :class="
+                              gridModel == 'grid'
+                                ? 'hidden'
+                                : 'visible' && $q.screen.gt.xs
+                                ? gridModel == 'list'
+                                  ? 'visible'
+                                  : 'hidden'
+                                : gridModel == 'list'
+                                ? 'hidden'
+                                : 'visible'
+                            "
+                            no-caps
+                            flat
+                            color="primary"
+                            label="View details"
+                          />
                           <h5
                             class="product-item-name text-h5 fw-regular text-color-2 no-margin q-pt-md overflow-hidden"
-
-                            :class="gridModel == 'list' ? 'hidden' : 'visible'"
+                            :class="
+                              gridModel == 'grid'
+                                ? 'visible'
+                                : 'hidden' && $q.screen.gt.xs
+                                ? gridModel == 'list'
+                                  ? 'hidden'
+                                  : 'visible'
+                                : gridModel == 'list'
+                                ? 'visible'
+                                : 'hidden'
+                            "
                           >
                             <a
                               href=""
@@ -282,33 +369,6 @@
                               {{ item.name }}
                             </a>
                           </h5>
-                          <div
-                            class="bg-blue1 q-my-sm"
-                            :style="
-                              $q.screen.lt.md
-                                ? { width: '100%' }
-                                : { width: '80%' }
-                            "
-                          >
-                            <p
-                              class="fs-16 fw-light text-color-3 no-margin q-py-xs q-px-xs"
-                              :class="
-                                gridModel == 'grid' ? 'hidden' : 'visible'
-                              "
-                            >
-                              {{ item.discription }}
-                            </p>
-                            <q-btn
-                              class="fw-regular"
-                              :class="
-                                gridModel == 'grid' ? 'hidden' : 'visible'
-                              "
-                              no-caps
-                              flat
-                              color="primary"
-                              label="View details"
-                            />
-                          </div>
                         </div>
                       </div>
                     </q-card-section>
@@ -382,57 +442,57 @@ export default {
         },
         {
           id: "2",
-          label: "Made In",
+          label: "Location",
           subcategories: [
             {
               id: "21",
-              label: "United States",
+              label: "Online",
               modelValue: false,
             },
             {
               id: "22",
-              label: "United Kingdom",
-              modelValue: false,
-            },
-            {
-              id: "23",
-              label: "Canada",
-              modelValue: false,
-            },
-            {
-              id: "24",
-              label: "Pakistan",
-              modelValue: false,
-            },
-            {
-              id: "25",
-              label: "Germany",
-              modelValue: false,
-            },
-            {
-              id: "26",
-              label: "France",
-              modelValue: false,
-            },
-            {
-              id: "27",
-              label: "Italy",
+              label: "Local Retailers",
               modelValue: false,
             },
           ],
         },
         {
           id: "3",
-          label: "Location",
+          label: "Made In",
           subcategories: [
             {
               id: "31",
-              label: "Online",
+              label: "United States",
               modelValue: false,
             },
             {
-              id: "32",
-              label: "Local Retailers",
+              id: "3",
+              label: "United Kingdom",
+              modelValue: false,
+            },
+            {
+              id: "33",
+              label: "Canada",
+              modelValue: false,
+            },
+            {
+              id: "34",
+              label: "Pakistan",
+              modelValue: false,
+            },
+            {
+              id: "35",
+              label: "Germany",
+              modelValue: false,
+            },
+            {
+              id: "36",
+              label: "France",
+              modelValue: false,
+            },
+            {
+              id: "37",
+              label: "Italy",
               modelValue: false,
             },
           ],
@@ -599,11 +659,16 @@ export default {
     border-color: #0066ff69;
   }
 }
+.product-item-grid-name {
+  width: 80%;
+  height: 33px;
+  /* background: aqua; */
+}
+
 .product-item-name {
   height: 67px;
-  /* background-color: aqua; */
   line-height: 25px;
-
+  /* background-color: red; */
 }
 
 .product-title-link {
