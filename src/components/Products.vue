@@ -134,7 +134,13 @@
               <div class="flex items-center">
                 <div
                   class="bg-white br-6"
-                  :class="$q.screen.lt.sm ? 'q-mr-xs' : $q.screen.lt.md ? 'q-mr-sm  visible' : 'hidden'"
+                  :class="
+                    $q.screen.lt.sm
+                      ? 'q-mr-xs'
+                      : $q.screen.lt.md
+                      ? 'q-mr-sm  visible'
+                      : 'hidden'
+                  "
                   style="border: 2px solid #dee2e7"
                 >
                   <q-btn
@@ -144,7 +150,131 @@
                     :ripple="false"
                     size="1em"
                     icon="filter_alt"
+                    @click="dialog = true"
                   />
+                  <q-dialog
+                    v-model="dialog"
+                    persistent
+                    :maximized="true"
+                    transition-show="slide-up"
+                    transition-hide="slide-down"
+                  >
+                    <q-card class="bg-white text-dark">
+                      <q-bar class="bg-color-7 q-py-lg">
+                        <q-btn dense flat icon="arrow_back" v-close-popup>
+                          <q-tooltip class="bg-white text-primary"
+                            >Close</q-tooltip
+                          >
+                        </q-btn>
+                        <q-space />
+                        <h4 class="text-h4 fw-regular no-margin">Filters</h4>
+                        <q-space />
+                      </q-bar>
+
+                      <!-- <q-card-section>
+                        <div class="text-h6">Alert</div>
+                      </q-card-section> -->
+
+                      <q-card-section class="q-pt-none">
+                        <q-list class="bg-white">
+                          <q-expansion-item
+                            v-for="(filter, index) in filterList"
+                            :key="index"
+                            :label="filter.label"
+                            dens
+                            default-opened
+                            header-style="color: #0067ff"
+                            header-class="fs-16 fw-regular bg-grey-"
+                          >
+                            <q-separator color="grey-4" size="2px" />
+                            <q-card
+                              :class="[
+                                { 'active-filter-item': item.modelValue },
+                                'filter-ite',
+                              ]"
+                              :ripple="false"
+                              v-for="item in filter.subcategories"
+                              :key="item"
+                            >
+                              <q-item
+                                class="fs-14 fw-light"
+                                tag="label"
+                                dense
+                                :ripple="false"
+                              >
+                                <!-- v-if="item.modelValue == true" -->
+                                <q-item-section
+                                  v-if="
+                                    filter.label !== 'Categories' &&
+                                    filter.label !== 'Price'
+                                  "
+                                  avatar
+                                >
+                                  <q-checkbox
+                                    v-model="item.modelValue"
+                                    :val="
+                                      item.label.toLowerCase().replace(' ', '')
+                                    "
+                                    color="primary"
+                                  />
+                                </q-item-section>
+                                <q-item-section
+                                  v-if="
+                                    filter.label !== 'Categories' &&
+                                    filter.label == 'Price'
+                                  "
+                                  avatar
+                                  style="width: 100%"
+                                  class="q-pb-lg q-pt-md"
+                                >
+                                  <q-range
+                                    class="q-pb-sm"
+                                    v-model="item.range"
+                                    :min="0"
+                                    :max="100"
+                                    :step="10"
+                                    :inner-min="0"
+                                    :inner-max="100"
+                                    label
+                                    label-always
+                                    switch-label-side
+                                    drag-range
+                                    track-size="6px"
+                                    inner-track-color="transparent"
+                                  />
+                                </q-item-section>
+                                <q-item-section
+                                  v-if="
+                                    filter.label !== 'Categories' &&
+                                    filter.label == 'Rating'
+                                  "
+                                  avatar
+                                  style="width: 100%"
+                                  class=""
+                                >
+                                  <q-rating
+                                    v-model="item.ratingModel"
+                                    size="1.5em"
+                                    color="primary"
+                                    readonly
+                                  />
+                                </q-item-section>
+                                <q-item-section
+                                  v-if="
+                                    filter.label !== 'Price' &&
+                                    filter.label !== 'Rating'
+                                  "
+                                >
+                                  <q-item-label> {{ item.label }}</q-item-label>
+                                </q-item-section>
+                              </q-item>
+                            </q-card>
+                            <!-- <q-separator color="primary" size="2px" /> -->
+                          </q-expansion-item>
+                        </q-list>
+                      </q-card-section>
+                    </q-card>
+                  </q-dialog>
                 </div>
 
                 <p
@@ -398,6 +528,8 @@ export default {
   name: "Products",
   data() {
     return {
+      dialog: false,
+      maximizedToggle: true,
       color: false,
       gridModel: "list",
       ratingModel: "4.5",
