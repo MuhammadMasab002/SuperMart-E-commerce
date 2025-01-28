@@ -15,7 +15,7 @@
       </div>
       <div class="row flex-center">
         <form @submit.prevent="handleSubmit">
-          <div class="flex justify-center">
+          <div class="flex justify-center items-center">
             <div class="q-field">
               <q-input
                 id="email"
@@ -36,7 +36,7 @@
                 {{ error }}
               </div>
             </div>
-            <div class="text-center q-py-s">
+            <div class="text-center q-py-sm">
               <q-btn
                 type="submit"
                 dense
