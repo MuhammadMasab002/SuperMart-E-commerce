@@ -133,7 +133,7 @@
               </div>
               <div class="flex items-center">
                 <div
-                  class="bg-white br-6"
+                  class="filter-wrapper bg-white br-6"
                   :class="
                     $q.screen.lt.sm
                       ? 'q-mr-xs'
@@ -141,12 +141,10 @@
                       ? 'q-mr-sm  visible'
                       : 'hidden'
                   "
-                  style="border: 2px solid #dee2e7"
                 >
                   <q-btn
                     flat
                     dense
-                    color="grey-6"
                     :ripple="false"
                     size="1em"
                     icon="filter_alt"
@@ -516,6 +514,24 @@
             </div>
           </div>
         </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="flex justify-end items-center q-my-lg bg-re">
+              <q-pagination
+                v-model="current"
+                max="3"
+                direction-links
+                outline
+                gutter="xs"
+                padding="6px 14px"
+                color="primary"
+                active-design="unelevated"
+                active-color="primary"
+                active-text-color="white"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -529,6 +545,7 @@ export default {
   data() {
     return {
       dialog: false,
+      current: 1,
       maximizedToggle: true,
       color: false,
       gridModel: "list",
@@ -767,6 +784,21 @@ export default {
 .active-filter-item {
   background-color: #e5f1ff;
   color: #0067ff;
+}
+
+.filter-wrapper {
+  border: 2px solid #dee2e7;
+  transition: all 0.3s ease-in-out;
+  .q-btn {
+    color: #606060;
+  }
+  &:hover {
+    cursor: pointer;
+    border-color: #0067ff;
+    .q-btn {
+      color: #0067ff;
+    }
+  }
 }
 
 /* card section */
